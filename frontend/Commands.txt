@@ -1,0 +1,11 @@
+Installation Commands ~
+
+yarn create react-app ant-design-form-app
+
+cd ant-design-form-app
+
+yarn add antd axios react-router-dom
+
+yarn add react@18 react-dom@18
+
+yarn start
