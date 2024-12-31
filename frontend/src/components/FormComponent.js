@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
-const BE_PORT = 8000;
+const BE_URL = "https://mern-forms-be.onrender.com";
 
 message.config({
     top: window.innerHeight - 80,
@@ -17,7 +17,7 @@ const FormComponent = () => {
 
     const onFinish = async (values) => {
         try {
-            await axios.post(`http://localhost:${BE_PORT}/submit`, values);
+            await axios.post(`${BE_URL}/submit`, values);
             message.success("Response Submitted Successfully");
             navigate("/about");
         } catch (error) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import "./App.css";
+import "../App.css";
 
 const { Footer } = Layout;
 

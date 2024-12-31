@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Spin, message } from "antd";
-import AccordionComponent from "./AccordionComponent";
+import AccordionComponent from "./components/AccordionComponent";
+
+const BE_URL = "https://mern-forms-be.onrender.com";
 
 const About = () => {
     const [users, setUsers] = useState([]);
@@ -10,7 +12,7 @@ const About = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/users");
+                const response = await axios.get(`${BE_URL}/users`);
                 setUsers(response.data.users);
             } catch (error) {
                 console.error("Error Fetching Users : ", error);
@@ -24,7 +26,7 @@ const About = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8000/users/${id}`);
+            await axios.delete(`${BE_URL}/users/${id}`);
             setUsers(users.filter(user => user._id !== id));
             message.success("User Deleted Successfully");
         } catch (error) {

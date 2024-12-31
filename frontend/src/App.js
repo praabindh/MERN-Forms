@@ -4,7 +4,7 @@ import { Layout, Menu } from "antd";
 import Home from "./Home";
 import About from "./About";
 import Statistics from "./Statistics";
-import FooterComponent from "./FooterComponent";
+import FooterComponent from "./components/FooterComponent";
 import "./App.css";
 
 const { Header, Content } = Layout;

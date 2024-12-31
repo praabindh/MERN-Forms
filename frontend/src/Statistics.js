@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Bar, Pie } from "react-chartjs-2";
+import { Spin } from "antd";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
+
+const BE_URL = "https://mern-forms-be.onrender.com";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
@@ -12,7 +15,7 @@ const Statistics = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/users");
+                const response = await axios.get(`${BE_URL}/users`);
                 setUsers(response.data.users);
             } catch (error) {
                 console.error("Error Fetching Users:", error);
@@ -68,7 +71,9 @@ const Statistics = () => {
         <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
             <h2 align="center">Statistics</h2>
             {loading ? (
-                <p>Loading...</p>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+                    <Spin size="large" />
+                </div>
             ) : (
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <div style={{ flex: 1, marginRight: "20px" }}>
